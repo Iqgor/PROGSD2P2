@@ -12,7 +12,8 @@
 </form>
 
 <?php 
-  if(($_SERVER['REQUEST_METHOD'])== 'post'){
+  var_dump($_SERVER);
+  if(($_SERVER['REQUEST_METHOD'])== 'POST'){
 
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -22,7 +23,9 @@
     echo $email;
     echo $coment;
     
-  };
+  } else{
+    echo "hier komt ie";
+  }
 
 ?>
 
