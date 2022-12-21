@@ -12,20 +12,35 @@
 </form>
 
 <?php 
-  var_dump($_SERVER);
+
   if(($_SERVER['REQUEST_METHOD'])== 'POST'){
 
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $coment = trim($_POST['coment']);
 
+    $name = htmlspecialchars($name);
+    $email = htmlspecialchars($email);
+    $coment = htmlspecialchars($coment);
+
+    $name = filter_var($name, FILTER_SANITIZE_NUMBER_FLOAT);
+
+ 
+
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+      echo $email;
+    }else{
+      echo "dit is niet een geldig email";
+    };
+
     echo $name;
-    echo $email;
     echo $coment;
     
   } else{
     echo "hier komt ie";
   }
+
+  
 
 ?>
 
